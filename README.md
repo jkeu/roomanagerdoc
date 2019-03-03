@@ -6,8 +6,8 @@
 
 会员可以通过网页注册，也可以通过接口注册，若通过接口注册，游戏客户端需要实现注册界面
 
-1. 网页注册: https://mydomain.com/user/signup.html
-2. 接口: https://mydomain.com/api/user/signup
+1. 网页注册: http://bitgame.pw/user/signup.html
+2. 接口: http://bitgame.pw/api/user/signup
 3. 输入: (http get method) user, password (使用 RSA 加密)
 4. 输出: {"result" : "ok"}
 5. 错误: {"result" : "some error"}
@@ -25,8 +25,8 @@ gwQco1KRMDSmXSMkDwIDAQAB
 
 游戏客户端需要实现登录界面，通过接口登录后，保存返回的 TOKEN，后面的接口都需要使用 TOKEN 进行鉴权
 
-1. 调试界面: https://mydomain.com/user/signin.html
-2. 接口: https://mydomain.com/api/user/login
+1. 调试界面: http://bitgame.pw/user/signin.html
+2. 接口: http://bitgame.pw/api/user/signin
 3. 输入: (http get method) user, password (使用 RSA 加密)
 4. 输出: {"token" : "TOKEN", "user" : "username"}
 5. 错误: {"result" : "some error"}
@@ -40,11 +40,17 @@ gwQco1KRMDSmXSMkDwIDAQAB
 -----END PUBLIC KEY-----
 ````
 
+### 房间
+
+用户使用网页查询已经进入的房间，并查询房间内余额及明细
+
+- 网页: http://bitgame.pw/user/index.html
+
 ### 积分
 
 用户通过房主进行加减积分，实际交收线下完成，房主可通过网页管理旗下会员的积分
 
-- 网页: https://mydomain.com/room/index.html
+- 网页: http://bitgame.pw/user/index.html
 
 
 ## 游戏
@@ -53,7 +59,7 @@ gwQco1KRMDSmXSMkDwIDAQAB
 
 游戏客户端需要实现房间号码输入界面，通过接口访问确定用户有权限可以进入房间
 
-1. 接口: https://mydomain.com/api/user/accountGet
+1. 接口: http://bitgame.pw/api/user/accountGet
 2. 输入: (http get method) TOKEN, user, room
 3. 输出: 帐户对象
 4. 错误: {"result" : "some error"}
@@ -81,7 +87,7 @@ type AccountInfo struct {
 
 每次获取游戏结果需要消耗房间的积分，房间积分由区域代理管理
 
-1. 接口: https://mydomain.com/api/user/gameRun
+1. 接口: http://bitgame.pw/api/user/gameRun
 2. 输入: (http get method) TOKEN, user, room, amount
 3. 输出: 根据游戏类型返回不同对象
 4. 错误: {"result" : "some error"}
@@ -99,7 +105,9 @@ type GameResultInfo struct {
 
 ## 房主
 
-coming soon
+房主通过网站管理旗下会员，每个房间对应一款游戏
+
+- 网页: http://bitgame.pw/user/index.html
 
 ### 邀请会员
 
@@ -115,29 +123,7 @@ coming soon
 
 等于提款
 
-### 查询会员积分记录
-
-### 查询会员盈利记录
-
-### 查看房间内会员报表
-
 ### 查询房间积分
-
-
-## 区域代理
-
-coming soon
-
-### 邀请房主
-
-发展房主是区域代理最主要的工作
-
-### 增加积分
-
-房间充值，为房主增加积分是区域代理持续发展的推动力
-
-### 查看区域内房间报表
-
 
 
 
